@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="utf-8">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="css/css.css"/>
+
+
+</head>
+<body>
+
+<script src="https://kit.fontawesome.com/a41ceec91b.js" crossorigin="anonymous"></script>
+
+<div id="divPadre">
+    <h2>UTI SAC</h2>
+    <br>
+    <h2>
+        Bienvenido <span sec:authentication="principal.username"></span>
+    </h2>
+    <br>
+    <br>
+    <div id="divHijo">
+        <div class="grid">
+            <div class="element1">
+
+                <div class="contenidoDentro2">
+                    <i class="fa-solid fa-users fa-5x" ></i>
+                    <div class="titulos2">
+                        <a th:href="@{/clientes}">CLIENTES</a>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="element2">
+
+                <div class="contenidoDentro3">
+                    <i class="fa-solid fa-box fa-5x"></i>
+                    <div class="titulos">
+                        <a th:href="@{/producto}">PRODUCTOS</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="element3">
+                <div class="contenidoDentro">
+
+                </div>
+            </div>
+
+
+            <div class="element4">
+                <div class="contenidoDentro4">
+                    <i class="fa-solid fa-calculator fa-5x"></i>
+                    <div class="titulos">
+                        <a href="factura">CREAR FACTURA</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid2">
+            <div class="element5">
+                <i class="fa-solid fa-money-bill fa-5x"></i>
+                <div class="titulos">
+                    <a th:href="@{/pagos}">PAGOS</a>
+                </div>
+            </div>
+            <div class="element6">
+                <i class="fa-solid fa-money-bill-wave fa-5x"></i>
+                <div class="titulos">
+                    <a href="#">COBROS</a>
+                </div>
+            </div>
+            <div class="element7">
+
+                <i class="fa-solid fa-right-from-bracket fa-5x " onclick="inicio()"></i>
+
+                <div class="titulos">
+                    <a sec:authorize="isAuthenticated()" th:href="@{/logout}">SALIDA</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
