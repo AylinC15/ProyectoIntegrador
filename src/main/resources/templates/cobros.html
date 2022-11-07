@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Cobros</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="navbar navbar-expand-md bg-secondary navbar-dark">
+		<img src="img/pagos.png" alt="cobros" width="60" height="60">
+		<div>
+			<h1 class="navbar-brand">Cobros</h1>
+		</div>
+
+	</div>
+	<div class="container" style="width: 200px;">
+		<br>
+		<h1>UTI S.A.C</h1>
+	</div>
+
+
+
+	<div class="container">
+
+		<div class="row">
+			<h1>Registro de cobros</h1>
+		</div>
+		<br>
+		<table align="center" class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>ID</th>
+					<th>Fecha</th>
+					<th>Nombre</th>
+					<th>Total </th>
+					<th>RUC</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cobros : ${cobros}">
+					<td th:text="${cobros.id}">ID</td>
+                    <td th:text="${cobros.fecha}">Fecha</td>
+					<td th:text="${cobros.nombre}">Nombre</td>
+					<td th:text="${cobros.totalcobro}">Total </td>
+					<td th:text="${cobros.ruc}">RUC</td>
+					<td>
+					  <a th:href="@{/cobros/editar/{id}(id=${cobros.id})}" class="btn btn-secondary btn-sm">Editar</a>
+					  <a th:href="@{/CobroEntidad/{id}(id=${cobros.id})}" class="btn btn-danger btn-sm">Eliminar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="row">
+			<div class="col-lg-3">
+				<a th:href="@{/cobros/nuevo}" class="btn btn-secondary btn-sm mb3">Agregar nuevos cobros</a>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
